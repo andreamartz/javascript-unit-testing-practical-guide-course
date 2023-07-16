@@ -1,3 +1,4 @@
+// takes a string (sum or error message); returns a string
 export function generateResultText(calculationResult) {
   let resultText = '';
 

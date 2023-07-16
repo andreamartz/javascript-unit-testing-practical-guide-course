@@ -4,11 +4,11 @@ import { generateResultText, outputResult } from './src/output.js';
 
 const form = document.querySelector('form');
 
-function formSubmitHandler(event) {
+export function formSubmitHandler(event) {
   event.preventDefault();
-  const numberInputs = extractEnteredNumberValues(form);
+  const numberInputs = extractEnteredNumberValues(form); // array of strings
 
-  const result = calculateResult(numberInputs);
+  const result = calculateResult(numberInputs);  // a string representing either the sum or an error message
 
   const resultText = generateResultText(result);
 
