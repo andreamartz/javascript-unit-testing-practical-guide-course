@@ -24,8 +24,14 @@ afterAll(() => {
   console.log('afterAll()');
 });
 
+// NOTE: see L57 for some additional notes about the behavior of concurrency within and across testing files as well as one caveat of using .concurrent
 
-it('should update the email', () => {
+// NOTE: you can add .concurrent to describe, and then all the tests in that suite will be run in parallel, which is the same as adding .concurrent to every individual test in the suite.
+  // For example: describe.concurrent()
+
+// NOTE: tests with the .concurrent annotation will be run in parallel (concurrently) with all other tests that have this annotation. 
+  // The default behavior is to run one after the other.
+it.concurrent('should update the email', () => {
   const newTestEmail = 'test2@test.com';
 
   user.updateEmail(newTestEmail);
@@ -33,24 +39,24 @@ it('should update the email', () => {
   expect(user.email).toBe(newTestEmail);
 });
 
-it('should have an email property', () => {
+it.concurrent('should have an email property', () => {
 
   expect(user).toHaveProperty('email');
 });
 
-it('should store the provided email value', () => {
+it.concurrent('should store the provided email value', () => {
 
   expect(user.email).toBe(testEmail);
 });
 
-it('should clear the email', () => {
+it.concurrent('should clear the email', () => {
 
   user.clearEmail();
 
   expect(user.email).toBe('');
 });
 
-it('should still have an email property after clearing the email', () => {
+it.concurrent('should still have an email property after clearing the email', () => {
 
   user.clearEmail();
 
