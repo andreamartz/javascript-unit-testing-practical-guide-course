@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 // ^ the two functions below both generate a JSON Web Token
 
 // * example async fcn using a callback fcn (i.e., doneFn)
+  // doneFn is forwarded to the package jwt, which invokes it once the token has been generated
 export function generateToken(userEmail, doneFn) {
   jwt.sign({ email: userEmail }, 'secret123', doneFn);
 }
