@@ -34,8 +34,8 @@ it('should generate a token value', (done) => {
 
   // * doneFn is the callback fcn; when called, it receives one of the two arguments from jwt (either err or token)
   const doneFn = (err, token) => {
-    // expect(token).toBeDefined();     // passes for the right reason
-    expect(token).toBe(2);        // fails, bc it times out and throws an error; Vitest does not pick up the error
+    expect(token).toBeDefined();     // passes for the right reason
+    // expect(token).toBe(2);        // fails, bc it times out and throws an error; Vitest does not pick up the error
     done();
   }
 
